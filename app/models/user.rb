@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
 	def self.search(params)
 		@user = User.where('username LIKE ?', '%#{params}%')
-		redirect_to search_users_path
+		redirect_to search_users_url
 	end
 
 	def User.new_token
