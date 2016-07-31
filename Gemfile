@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem "bcrypt-ruby", '~> 3.0.0'
+gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'bcrypt-ruby', '3.1.1.rc1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use mysql as the database for Active Record
@@ -24,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -38,6 +40,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'mysql2', '>= 0.3.18', '< 0.5'
+  gem "better_errors"
 end
 
 group :production do 
