@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-	attr_accessor :activation_token, :remember_token
+	attr_accessor :activation_token, :remember_token, :reset_token
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i
 
 	validates :username, :presence => true, :length => {:minimum => 6}, :uniqueness => true
@@ -53,6 +53,14 @@ class User < ApplicationRecord
 		self.reset_token = User.new_token
 		update_attribute(:reset_digest, User.digest(reset_token))
 		update_attribute(:reset_sent_at, Time.zone.now)
+	end
+
+	def send_password_reset_email
+		UserMailer.password_reset(self).deliver_now
+	end
+
+	def password_reset_expired?
+		reset_sent_at < 2.hours.ago
 	end
 
 	private 
