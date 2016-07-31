@@ -1,5 +1,8 @@
 module SessionsHelper
 
+	def current_user_details 
+		return session[:user_id]
+	end
 	
   # Logs in the given user.
   def log_in(user)

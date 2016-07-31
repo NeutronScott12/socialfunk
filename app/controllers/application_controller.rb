@@ -25,4 +25,9 @@ class ApplicationController < ActionController::Base
 	def logged_in?
 		!current_user.nil?
 	end
+
+	def current_user_detail 
+		return params[:session][:user_id]
+	end
+
 end
