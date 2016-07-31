@@ -19,7 +19,7 @@
       </ul>
       <form class="navbar-form navbar-right">
         <div class="form-group">
-          <%= form_tag users_path :method => 'get' do %>
+          <%= form_tag search_users_path, :method => 'get' do %>
             <%= text_field_tag :search, params[:search], class: "form-control" %>
         </div>
         <%= submit_tag "Find Users", :name => nil, class: "btn btn-default" %> 

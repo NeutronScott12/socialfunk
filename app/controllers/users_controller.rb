@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 		@user = User.search(params[:search])
 	end
 
+	def search
+		@user = User.seach(params)
+	end
+
 	def new
 		@user = User.new
 	end
