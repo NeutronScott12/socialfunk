@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-	attr_accessor :activation_token 
+	attr_accessor :activation_token, :remember_token
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i
 
 	validates :username, :presence => true, :length => {:minimum => 6}, :uniqueness => true
@@ -14,6 +14,15 @@ class User < ApplicationRecord
 
 	def User.new_token
 		SecureRandom.urlsafe_base64
+	end
+
+	def remember 
+		self.remember_token = User.new_token
+		update_attribute(:remember_digest, user.digest(remember_token))
+	end
+
+	def forget 
+		update_attribute(:remember_digest, nil)
 	end
 
 	def User.digest(string)
