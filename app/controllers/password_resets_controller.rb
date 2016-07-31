@@ -17,6 +17,7 @@ class PasswordResetsController < ApplicationController
   	else
   		flash.now[:danger] = "Email Address Not Found"
   		render = :new
+  	end
   end
 
   def edit
@@ -52,5 +53,6 @@ class PasswordResetsController < ApplicationController
   		flash[:danger] = "Password Reset Has Expired"
   		redirect_to new_password_reset_url
   	end
+  end
 
 end
