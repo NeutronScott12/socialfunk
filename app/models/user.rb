@@ -7,6 +7,7 @@ class User < ApplicationRecord
 	validates :email, :presence => true, format: {with: VALID_EMAIL_REGEX}, :uniqueness => true
 
 	before_save :downcase_email
+	before_save :create_activation_digest
 
 	has_secure_password
 	validates :password, :presence => true, :length => {:minimum => 5}, allow_nil: true
