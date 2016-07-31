@@ -12,6 +12,14 @@ class User < ApplicationRecord
 	has_secure_password
 	validates :password, :presence => true, :length => {:minimum => 5}, allow_nil: true
 
+	def self.search(search)
+		if search
+			where(["username LIKE ?", "%#{search}%"])
+		else
+			nil
+		end
+	end
+
 	def User.new_token
 		SecureRandom.urlsafe_base64
 	end

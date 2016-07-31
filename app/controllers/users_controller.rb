@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 	before_action :correct_user, only: [:edit, :update]
 	before_action :already_logged_in?, only: [:create, :new]
 
+	def index 
+		@user = User.search(params[:search])
+	end
+
 	def new
 		@user = User.new
 	end
