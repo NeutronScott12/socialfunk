@@ -1,3 +1,7 @@
-User#account_activation
+Hi <%= @user.username %>
 
-find me in app/views/user_mailer/account_activation.text.erb
+
+  This is an email to activate your account, just follow the link and you're done
+
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
