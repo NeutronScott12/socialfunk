@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	end
 
 	def search
-		@user = User.seach(params)
+		@user = User.search(params[:search])
 	end
 
 	def new

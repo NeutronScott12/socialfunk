@@ -20,10 +20,10 @@
       <form class="navbar-form navbar-right">
         <div class="form-group">
           <%= form_tag search_users_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], class: "form-control" %>
+            <%= text_field_tag :search %>
+            <%= submit_tag "Find Users", :name => nil, class: "btn btn-default" %> 
+          <% end %>
         </div>
-        <%= submit_tag "Find Users", :name => nil, class: "btn btn-default" %> 
-        <% end %>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -49,3 +49,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+          <%= form_tag search_users_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Find Users", :name => nil, class: "btn btn-default" %> 
+          <% end %>
