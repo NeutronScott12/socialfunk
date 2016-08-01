@@ -22,7 +22,7 @@ class User < ApplicationRecord
 	end
 
 	def generate_slug
-		self.slug ||= name.parameterize
+		self.slug ||= username.parameterize
 	end
 
 	def self.search(search)
