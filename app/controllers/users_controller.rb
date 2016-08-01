@@ -6,6 +6,11 @@ class UsersController < ApplicationController
 	before_action :already_logged_in?, only: [:create, :new]
 
 	def index 
+		@user = User.search(params[:search])
+		if logged_in?
+			@micropost = current_user.microposts.build if logged_in?
+			@feed_items = current_user.feed
+		end
 	end
 
 	def search
@@ -74,7 +79,7 @@ class UsersController < ApplicationController
 	end
 
 	def correct_user 
-		@user = User.find(params[:id])
+		@user = User.find_by_slug(params[:id])
 		redirect_to (root_url) unless current_user?(@user)
 	end
 end

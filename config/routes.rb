@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
 	resources :account_activations, only: [:edit]
 
-	resources :users, path: "", only: [:index, :show]
-	get '*id', to: 'users#index'
+	resources :users, path: "", only: [:show]
+	#get '*id', to: 'users#index'
 
 	resources :users do 
 		collection do 
@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 		end
 	end
 	resources :password_resets, only: [:new, :create, :edit, :update]
+
+	resources :microposts, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+	has_many :microposts, dependent: :destroy
+
 	attr_accessor :activation_token, :remember_token, :reset_token
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\-.]+\.[a-z]+\z/i
 
@@ -16,6 +18,10 @@ class User < ApplicationRecord
 
 	#extend FriendlyId
 	#friendly_id :user, use: :slugged
+
+	def feed
+		Micropost.where("user_id = ?", id)
+	end
 
 	def to_param
 		slug
