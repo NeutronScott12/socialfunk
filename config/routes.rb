@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
 	get 'user/:id' => 'users#show'
 
+	get 'user/:username' => 'users#show'
+
 	resources :account_activations, only: [:edit]
 	resources :users do 
 		collection do 

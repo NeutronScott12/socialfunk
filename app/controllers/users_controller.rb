@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 	end
 
 	def search
-		@user = User.search(params[:search])
+		@user = User.search(params[:search]) do 
+			@user 
+		end
 	end
 
 	def new
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = User.find_by_username(params[:username])
 	end
 
 	def create
