@@ -5,9 +5,11 @@ class User < ApplicationRecord
 
 	validates :username, :presence => true, :length => {:minimum => 6}, :uniqueness => true
 	validates :email, :presence => true, format: {with: VALID_EMAIL_REGEX}, :uniqueness => true
+	validates :slug, uniqueness: true, presence: true
 
 	before_save :downcase_email
 	before_save :create_activation_digest
+	before_validation :generate_slug
 
 	has_secure_password
 	validates :password, :presence => true, :length => {:minimum => 5}, allow_nil: true
@@ -17,6 +19,10 @@ class User < ApplicationRecord
 
 	def to_param
 		"#{id}-#{username}".parameterize
+	end
+
+	def generate_slug
+		self.slug ||= name.parameterize
 	end
 
 	def self.search(search)
