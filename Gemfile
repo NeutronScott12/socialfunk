@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'sendgrid'
 
+gem 'friendly_id'
+
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'bcrypt-ruby', '3.1.1.rc1'
