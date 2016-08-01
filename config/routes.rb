@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 	delete 'logout' => 'sessions#destroy'
 
-	map.user '/:username', :controller => 'users', action: => 'show'
+	get '/:id', :controller => 'users', action: => 'show'
 
 
 	resources :account_activations, only: [:edit]
