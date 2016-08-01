@@ -12,9 +12,12 @@ class User < ApplicationRecord
 	has_secure_password
 	validates :password, :presence => true, :length => {:minimum => 5}, allow_nil: true
 
-	extend FriendlyId
+	#extend FriendlyId
+	#friendly_id :user, use: :slugged
 
-	friendly_id :user, use: :slugged
+	def to_param
+		"#{id}-#{username}".parameterize
+	end
 
 	def self.search(search)
 		where(["username LIKE ?", "%#{search}%"])
