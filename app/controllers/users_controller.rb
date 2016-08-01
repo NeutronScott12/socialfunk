@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
 
-	before_action :find_user, only: [:show]
+	before_action :find_user, only: [:show, :index, :edit]
 	before_action :logged_in_user, only: [:edit, :update, :destroy]
 	before_action :correct_user, only: [:edit, :update]
 	before_action :already_logged_in?, only: [:create, :new]
 
 	def index 
-		@user = User.search(params[:search])
 	end
 
 	def search
@@ -20,7 +19,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
 	end
 
 	def create
@@ -72,7 +70,7 @@ class UsersController < ApplicationController
 	end
 
 	def find_user 
-		@user = User.find_by_slug!(params[:id])
+		@user = User.find_by_slug(params[:id].split("/").last)
 	end
 
 	def correct_user 

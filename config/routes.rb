@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 	get 'user/:username' => 'users#show'
 
 	resources :account_activations, only: [:edit]
+
+	resources :users, path: "", only: [:index, :show]
+	get '*id', to: 'users#index'
+
 	resources :users do 
 		collection do 
 			get 'search'

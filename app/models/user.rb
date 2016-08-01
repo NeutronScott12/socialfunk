@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
 	validates :username, :presence => true, :length => {:minimum => 6}, :uniqueness => true
 	validates :email, :presence => true, format: {with: VALID_EMAIL_REGEX}, :uniqueness => true
-	validates :slug, uniqueness: true, presence: true
+	validates :slug, uniqueness: true, presence: true, exclusion: {in: %w[sigh_up login]}
 
 	before_save :downcase_email
 	before_save :create_activation_digest
@@ -18,7 +18,7 @@ class User < ApplicationRecord
 	#friendly_id :user, use: :slugged
 
 	def to_param
-		"#{id}-#{username}".parameterize
+		slug
 	end
 
 	def generate_slug
