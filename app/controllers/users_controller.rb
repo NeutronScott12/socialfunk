@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+	before_action :find_user, only: [:show]
 	before_action :logged_in_user, only: [:edit, :update, :destroy]
 	before_action :correct_user, only: [:edit, :update]
 	before_action :already_logged_in?, only: [:create, :new]
@@ -19,7 +20,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by_username(params[:username])
 	end
 
 	def create
@@ -67,11 +67,11 @@ class UsersController < ApplicationController
 	private 
 
 	def user_params
-		params.require(:user).permit(:username, :email, :password, :password_confirmation)
+		params.require(:user).permit(:username, :email, :password, :password_confirmation, :slug)
 	end
 
 	def find_user 
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 	end
 
 	def correct_user 
