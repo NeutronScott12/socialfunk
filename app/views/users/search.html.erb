@@ -1,3 +1,5 @@
-<%= @user.each do |user| %>
-	<%= user.username %>
+<% if !params[:search].blank? %>
+	<% @user.each do |user| %>
+		<%= user.username %>
+	<% end %>
 <% end %>
