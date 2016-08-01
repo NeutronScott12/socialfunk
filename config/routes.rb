@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 	delete 'logout' => 'sessions#destroy'
 
-	get 'username' => 'user#show', as: :username
+	get 'username', :to => 'user#show', :as => :username, :via => :get
 
 
 	resources :account_activations, only: [:edit]
