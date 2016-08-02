@@ -7,7 +7,7 @@ class MicropostsController < ApplicationController
 		@micropost = current_user.microposts.build(micropost_params)
 		respond_to do |format|
 			if @micropost.save
-				format.html {redirect_to root_url}
+				format.html {redirect_to request.referrer || root_url}
 				format.json {render root_url, status: :created}
 				flash[:success] = "Post Uploaded"
 			else

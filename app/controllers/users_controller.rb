@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_action :find_user, only: [:show, :index, :edit]
+	before_action :find_user, only: [:show, :index, :edit, :following, :followers]
 	before_action :logged_in_user, only: [:edit, :update, :destroy]
 	before_action :correct_user, only: [:edit, :update]
 	before_action :already_logged_in?, only: [:create, :new]
@@ -11,6 +11,18 @@ class UsersController < ApplicationController
 			@micropost = current_user.microposts.build if logged_in?
 			@feed_items = current_user.feed
 		end
+	end
+
+	def following
+		@title = "Following"
+		@users = @user.following
+		render 'show_follow'
+	end	
+
+	def followers 
+		@title = "Followers"
+		@users = @user.followers
+		render 'show_follow'
 	end
 
 	def search
@@ -24,6 +36,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@micropost = current_user.microposts.build if logged_in?
+		@feed_items = current_user.feed
 		@microposts = @user.microposts
 	end
 

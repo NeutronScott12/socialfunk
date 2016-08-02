@@ -1,19 +1,31 @@
-<% provide(:title, @user) %>
+<% provide(:title, @user.username) %>
 <div class="row">
-	<aside class="col-md-4">
-		<section class="user_info">
-			<h2>	
-				<%# gravatar_for @user %>
-				<%= @user.username %>
-			</h2>
-		</section>
+	<aside class="col-sm-4">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<section class="user_info">
+					<h2>	
+						<%# gravatar_for @user %>
+						<%= @user.username %>
+					</h2>
+				</section>
+				<section class="stats">
+					<%= render 'shared/stats' %>
+				</section>
+				<section class="user_info">
+						<%= render 'shared/user_info' %>
+				</section>
+			</div>
+		</div>
 	</aside>
-	<div class="col-md-8">
-		<% if @user.microposts.any? %>
-			<h3><% pluralize(@user.microposts.count, "Post") %></h3>
-			<ol class="microposts">
-				<%= render 'shared/micropost' %>
-			</ol>
-		<% end %>
-	</div>
+	<% if logged_in? %>
+			<div class="col-md-8 panel-defualt">
+				<div class="panel-body">
+					<%= render 'shared/micropost_form' %>
+					<%= render 'shared/feed' %>
+				</div>
+			</div>
+		</div>
+	<% end %>
 </div>
+

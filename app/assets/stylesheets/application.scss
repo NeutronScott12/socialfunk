@@ -2,9 +2,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "users";
+@import "microposts";
 
 body {
 	background-color:#d9d9d9;
 }
 
+.bottom_links {
+	p {
+		display:inline;
+		color:black;
+		margin-right:.5rem;
+	}
+}
 
+.followers {
+	ul {
+		list-style-type:none;
+	}
+}
