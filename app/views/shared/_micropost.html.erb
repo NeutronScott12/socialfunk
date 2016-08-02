@@ -1,4 +1,4 @@
-   <% if @user.microposts.any? %>
+<% if @user.microposts.any? %>
         <ol class="microposts">
           <% @user.microposts.each do |micropost| %>
             <h4><%= micropost.user.username %></h4>
@@ -15,4 +15,4 @@
             <% end %>
           <% end %>
         </ol>
-     <% end %>
+<% end %>
