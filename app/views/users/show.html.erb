@@ -22,17 +22,15 @@
 		</div>
 	</aside>
 	<% if logged_in? %>
-			<div class="col-md-8 panel-default">
-				<div class="panel-body">
-					<%= render 'shared/micropost_form' %>
-				</div>
+			<div class="col-md-8">
+				<% if current_user %>
+					<%= render 'shared/micropost_form' if logged_in? %>
+				<% end %>
 				<% if @user.microposts.empty? %>
 					<h3>Why Not Start Posting?</h3>
 				<% else %>
-				<div class="panel-body">
-					<%= render 'shared/feed' %>
+						<%= render 'shared/feed' %>
 				<% end %>
-				</div>
 			</div>
 		</div>
 	<% end %>
