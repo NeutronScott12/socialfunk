@@ -6,6 +6,8 @@ gem 'friendly_id'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'gravtastic'
+
 gem 'bcrypt-ruby', '3.1.1.rc1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
