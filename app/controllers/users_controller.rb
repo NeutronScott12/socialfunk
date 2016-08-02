@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
 	def followers 
 		@title = "Followers"
-		@users = @user.followers
+		@users = @user.following
 		render 'show_follow'
 	end
 
@@ -39,6 +39,7 @@ class UsersController < ApplicationController
 		@micropost = current_user.microposts.build if logged_in?
 		@feed_items = current_user.feed
 		@microposts = @user.microposts
+		@users = @user.following
 	end
 
 	def create
