@@ -1,5 +1,14 @@
+<% provide(:title, "Search") %>
 <% if !params[:search].blank? %>
 	<% @user.each do |user| %>
-		<%= link_to user.username, user %>
+		<div class="row">	
+			<div class="container-fluid">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3><%= link_to user.username, user %></h3>
+					</div>
+				</div>
+			</div>
+		</div>
 	<% end %>
 <% end %>
