@@ -5,7 +5,9 @@
 		<div class="panel-body">  
 		    <section class="user_info">
 		      <h1>
-		        <%= gravatar_for @user %>
+		        <%= link_to "https://en.gravatar.com" do %> 
+		        	<%= gravatar_for @user %>
+		        <% end %>
 		        <%= @user.username %>
 		      </h1>
 		    </section>
