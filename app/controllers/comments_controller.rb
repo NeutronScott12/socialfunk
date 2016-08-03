@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-	before_action :micropost_find, only: [:create, :destroy]
+	before_action :micropost_find, only: [:create, :destroy, :index]
 	before_action :comment_find, only: [:destroy]
 
 	def create 
@@ -10,11 +10,11 @@ class CommentsController < ApplicationController
 
 		respond_to do |format|
 			if @comment.save 
-				format.html {redirect_to request_referrer || root_url}
-				format.json {render request_referrer, status: :created}
+				format.html {redirect_to :back || root_url}
+				format.json {render :back, status: :created}
 			else
-				format.html {render request_referrer}
-				format.json {render request_referrer, status: :unprocessable_entity}
+				format.html {render :back}
+				format.json {render :back, status: :unprocessable_entity}
 			end
 		end
 	end

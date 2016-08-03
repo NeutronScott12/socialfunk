@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="container-fluid col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p><%= @micropost.user.username %></p>
+        <%= @micropost.content %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="container-fluid col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= render 'comments/comment_form' %>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="container-fluid col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= render @micropost.comments %>
+        </div>
+      </div>
+    </div>
+</div>

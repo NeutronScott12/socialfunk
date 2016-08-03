@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 		@feed_items = current_user.feed.paginate(:page => params[:page], :per_page => 20)
 		@microposts = @user.microposts.paginate(:page => params[:page], :per_page => 20)
 		@users = @user.following.paginate(:page => params[:page], :per_page => 20)
+		@Micropost = Micropost.find_by(params[:slug])
 	end
 
 	def create

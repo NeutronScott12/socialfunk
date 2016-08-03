@@ -1,4 +1,4 @@
-<%= form_for(@micropost, remote: true) do |f| %>
+<%= form_for(@micropost, remote: true, remote: true) do |f| %>
 	<%= render 'shared/errors', object: f.object %>
 	<div class="field">
 		<%= f.text_area :content, placeholder: "Post a comment", class: "form-control" %>

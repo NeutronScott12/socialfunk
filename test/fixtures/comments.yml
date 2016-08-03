@@ -2,6 +2,10 @@
 
 one:
   content: MyText
+  user_id: 1
+  micropost_id: 1
 
 two:
   content: MyText
+  user_id: 1
+  micropost_id: 1
