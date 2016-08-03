@@ -8,7 +8,7 @@
 		        <%= link_to "https://en.gravatar.com" do %> 
 		        	<%= gravatar_for @user %>
 		        <% end %>
-		        <%= @user.username %>
+		        <%= truncate(@user.username, length: 20) %>
 		      </h1>
 		    </section>
 		    <section class="stats">
