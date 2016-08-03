@@ -30,3 +30,17 @@ body {
 		}
 	}
 }
+
+.show_button {
+	border:none;
+	outline:none;
+	button {
+		a {
+			&:hover {
+				background:blue;
+				border:none;
+				outline:none;
+			}
+		}
+	}
+}

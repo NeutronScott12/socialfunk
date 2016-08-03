@@ -18,7 +18,9 @@
 		      <% if @users.any? %>
 					<div class="user_avatars">
 						<% @users.each do |user| %>
-							<%= link_to gravatar_for(user, size: 30), user %>
+							<button type="button", class="btn btn-default show_button", date-toggle="tooltip", data-placement="left" title="<%= user.username %>">
+								<%= link_to gravatar_for(user, size: 30), user %>
+							</button>
 						<% end %>
 					</div>
 				<% end %>
