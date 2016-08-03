@@ -14,7 +14,7 @@ class MicropostsController < ApplicationController
 				format.html {redirect_to request.referrer || root_url}
 				format.json {render root_url, status: :created}
 				format.js
-				flash[:success] = "Post Uploaded"
+				#flash[:success] = "Post Uploaded"
 			else
 				format.html {render 'static_pages/home'}
 				format.json {render 'static_pages/home', status: :unprocessable_entity}
@@ -29,7 +29,7 @@ class MicropostsController < ApplicationController
 			format.html {redirect_to request.referrer || root_url}
 			format.json {render root_url, status: :ok}
 			format.js
-			flash[:success] = "Post Deleted"
+			#flash[:success] = "Post Deleted"
 		end
 	end
 
