@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+	before_action :already_logged_in?, only: [:create, :new]
+
 	def new
 	end
 
