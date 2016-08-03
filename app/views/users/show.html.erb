@@ -10,7 +10,7 @@
 		        <% end %>
 		        <%= truncate(@user.username, length: 15) %>
 		      </h1>
-		      <p>Joined <%= @user.created_at.strftime("%b %Y %a") %></p>
+		      <p>Joined <%= @user.created_at.strftime("%b %Y") %></p>
 		    </section>
 		    <section class="stats">
 		      <%= render 'shared/stats' %>
