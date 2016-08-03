@@ -2,4 +2,5 @@
 	<ol class="mircoposts list-group">
 		<li class="list-group-item"><%= render @feed_items %></li>
 	</ol>
+	<%= will_paginate @feed_items %>
 <% end %>

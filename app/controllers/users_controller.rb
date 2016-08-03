@@ -15,13 +15,13 @@ class UsersController < ApplicationController
 
 	def following
 		@title = "Following"
-		@users = @user.following
+		@users = @user.following.paginate(:page => params[:page], :per_page => 30)
 		render 'show_follow'
 	end	
 
 	def followers 
 		@title = "Followers"
-		@users = @user.following
+		@users = @user.following.paginate(:page => params[:page], :per_page => 30)
 		render 'show_follow'
 	end
 
@@ -37,9 +37,9 @@ class UsersController < ApplicationController
 
 	def show
 		@micropost = current_user.microposts.build if logged_in?
-		@feed_items = current_user.feed
-		@microposts = @user.microposts
-		@users = @user.following
+		@feed_items = current_user.feed.paginate(:page => params[:page], :per_page => 20)
+		@microposts = @user.microposts.paginate(:page => params[:page], :per_page => 20)
+		@users = @user.following.paginate(:page => params[:page], :per_page => 20)
 	end
 
 	def create
