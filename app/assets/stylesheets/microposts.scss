@@ -16,8 +16,18 @@
 .micropost {
 	list-style-type:none;
 	margin-top:1rem;
+	.user {
+		font-weight:700;
+		font-size:1.5rem;
+		a {
+			text-decoration:none;
+			color:darkgrey;
+		}
+	}
 }
 
-.new_micropost {
-	margin-bottom:3rem;
+.timestamp {
+	.time {
+		color:darkgrey;
+	}
 }

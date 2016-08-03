@@ -7,6 +7,7 @@
 
 body {
 	background-color:#d9d9d9;
+	font-family:"Montserrat", "Oswald", sans-serif;
 }
 
 .bottom_links {
@@ -36,11 +37,16 @@ body {
 	outline:none;
 	button {
 		a {
-			&:hover {
-				background:blue;
-				border:none;
-				outline:none;
-			}
+			background:blue;
+			border:none;
+			outline:none;
 		}
+	}
+}
+
+.post_link {
+	margin-bottom:0;
+	a {
+		margin-bottom:0;
 	}
 }
