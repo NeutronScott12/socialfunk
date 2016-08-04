@@ -8,14 +8,23 @@
     </span>
     <span class="timestamp">
       <p class="time">Posted <%= time_ago_in_words(micropost.created_at).gsub('about','') %> ago.</p>
-      <p class="comment_ammount">Comments <%= micropost.comments.count %></p>
+      <p class="comment_ammount"><span>Comments <%= micropost.comments.count %></span>
+      <span class="likes_dislikes">Likes <%= micropost.get_upvotes.size %></span>
+      <span class="likes_dislikes">Dislikes <%= micropost.get_downvotes.size %></span></p>
       <% if current_user?(micropost.user) %>
+      </p>
         <span class="post_link">
           <p><%= link_to micropost, method: :delete, data: {confirm: "Are you sure?"} do %>
                 <i class="glyphicon glyphicon-remove"></i>
           <% end %>
       <% end %>
-              <a href="<%= micropost_path(micropost) %>"> <i class="glyphicon glyphicon-pencil"></i></a></p>
+              <a href="<%= micropost_path(micropost) %>"> <i class="glyphicon glyphicon-pencil"></i></a>
+              <span class="likes_dislikes"><%= link_to like_micropost_path(micropost), method: :get do %>
+                <i class="glyphicon glyphicon-plus"></i>
+              <% end %></span>
+              <span class="likes_dislikes"><%= link_to dislike_micropost_path(micropost), method: :get do %>
+                <i class="glyphicon glyphicon-minus"></i></p>
+              <% end %></span>
         </span>
     </span>
   </li>

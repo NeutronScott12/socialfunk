@@ -34,6 +34,13 @@
 
 .comment_ammount {
 	color:darkgrey;
+	span {
+		margin-right:5rem;
+	}
+	.likes_dislikes {
+		float:right;
+		margin-left:-2rem;
+	}
 }
 
 /*.iframe_container {

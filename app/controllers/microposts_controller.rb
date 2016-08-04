@@ -33,6 +33,18 @@ class MicropostsController < ApplicationController
 		end
 	end
 
+	def upvote
+		@micropost = Micropost.find(params[:id])
+		@micropost.upvote_by current_user
+		redirect_to :back
+	end
+
+	def downvote
+		@micropost = Micropost.find(params[:id])
+		@micropost.downvote_by current_user
+		redirect_to :back
+	end
+
 	private 
 
 	def micropost_params
