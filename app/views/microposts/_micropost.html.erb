@@ -8,6 +8,7 @@
     </span>
     <span class="timestamp">
       <p class="time">Posted <%= time_ago_in_words(micropost.created_at).gsub('about','') %> ago.</p>
+      <p class="comment_ammount">Comments <%= micropost.comments.count %></p>
       <% if current_user?(micropost.user) %>
         <span class="post_link">
           <p><%= link_to micropost, method: :delete, data: {confirm: "Are you sure?"} do %>
