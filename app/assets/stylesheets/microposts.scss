@@ -31,3 +31,24 @@
 		color:darkgrey;
 	}
 }
+
+/*.iframe_container {
+	position:relative;
+	height:0;
+	overflow:hidden;
+	iframe {
+		z-index:1;
+		position:absolute;
+		top:0;
+		left:0;
+		border:none;
+		margin:0 auto;
+		width:75%;
+		height:75%;
+		overflow:scrollbars-none;
+	}
+}*/
+
+.micropost_form {
+	margin-bottom:3rem;
+}

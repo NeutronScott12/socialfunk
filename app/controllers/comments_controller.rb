@@ -11,10 +11,12 @@ class CommentsController < ApplicationController
 		respond_to do |format|
 			if @comment.save 
 				format.html {redirect_to :back || root_url}
-				format.json {render :back, status: :created}
+				format.json {render :back, status: :created, location: @comment}
+				format.js
 			else
 				format.html {render :back}
 				format.json {render :back, status: :unprocessable_entity}
+				format.js
 			end
 		end
 	end

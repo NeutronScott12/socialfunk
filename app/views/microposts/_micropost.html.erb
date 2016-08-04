@@ -14,11 +14,12 @@
                 <i class="glyphicon glyphicon-remove"></i>
           <% end %>
       <% end %>
-          <%= link_to micropost_path(micropost) do %>
-                <i class="glyphicon glyphicon-pencil"></i></p>
-          <% end %>
+              <a href="<%= micropost_path(micropost) %>"> <i class="glyphicon glyphicon-pencil"></i></a></p>
         </span>
     </span>
   </li>
 </ul>
+
+
+
 
