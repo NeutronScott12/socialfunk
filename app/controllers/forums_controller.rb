@@ -7,6 +7,10 @@ class ForumsController < ApplicationController
 
 	def index
 		@forum_gaming = Forum.where(category_id: 1)
+		@forum_news = Forum.where(category_id: 2)
+		@forum_movies = Forum.where(category_id: 3)
+		@forum_general = Forum.where(category_id: 4)
+		@forum_politcs = Forum.where(category_id: 5)
 	end
 
 	def show
