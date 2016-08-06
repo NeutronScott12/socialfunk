@@ -4,7 +4,7 @@ class Forum < ApplicationRecord
 	has_many :topics
 
 	validates :title, presence: true, uniqueness: true
-	validates :user_id, presence: true, uniqueness: true
+	validates :user_id, presence: true
 	validates :category_id, presence: true, uniqueness: true
 
 end
