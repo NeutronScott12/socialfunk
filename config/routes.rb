@@ -16,6 +16,12 @@ Rails.application.routes.draw do
 
 	get 'user/:username' => 'users#show'
 
+	resources :forums do  
+		resources :topics, shallow: true do 
+			resources :contents 
+		end
+	end
+
 	resources :account_activations, only: [:edit]
 
 	resources :users, path: "", only: [:show]

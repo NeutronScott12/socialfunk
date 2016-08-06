@@ -1,0 +1,5 @@
+<%= link_to topic_path(@forum) do %>
+	<p class="title"><%= topic.title %></p>
+	<p class="username"><%= topic.user.try(:username) %></p>
+	<p class="description"><%= topic.description %></p>
+<% end %>

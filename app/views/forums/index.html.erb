@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="container-fluid col-md-8 col-md-offset-2">
+		<h2>Social Funk Forum</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container-fluid col-md-8 col-md-offset-2">
+		<p><%= link_to "Create Category", new_forum_path %></p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container-fluid col-md-8 col-md-offset-2">
+		<h2>Gaming</h2>
+		<% @forum_gaming.each do |game| %>
+			<%= link_to game.title, forum_path(game) %>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container-fluid col-md-8 col-md-offset-2">
+		<h2>Politics</h2>
+		<%# @forum_politic.each do |game| %>
+			<%# link_to game.title, forum_path(game) %>
+		<%# end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container-fluid col-md-8 col-md-offset-2">
+		<h2>latest</h2>
+		<%# @forum_latest.each do |game| %>
+			<%# link_to game.title, forum_path(game) %>
+		<%# end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container-fluid col-md-8 col-md-offset-2">
+		<h2>Entertainment</h2>
+		<%# @forum_entertainment.each do |game| %>
+			<%# link_to game.title, forum_path(game) %>
+		<%# end %>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="container col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+			<%= form_for(@forum) do |f| %>
+				<%= render 'shared/errors', object: f.object %>
+				<p><%= f.label :title %></p>
+				<%= f.text_field :title, class: "form-control" %>
+				<p><%= f.label :category %></p>
+				<%= f.collection_select :category_id, Category.all, :id, :name, class: "dropdown-menu" %>
+				<br />
+				<br />
+				<%= f.submit "Create Category", class: "btn btn-default" %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

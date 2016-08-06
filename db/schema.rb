@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804150051) do
+ActiveRecord::Schema.define(version: 20160805143045) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",      limit: 65535
@@ -19,6 +25,22 @@ ActiveRecord::Schema.define(version: 20160804150051) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["user_id", "micropost_id"], name: "index_comments_on_user_id_and_micropost_id", using: :btree
+  end
+
+  create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "comment",    limit: 65535
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "forums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "microposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -40,24 +62,28 @@ ActiveRecord::Schema.define(version: 20160804150051) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
   end
 
+  create_table "topics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "description", limit: 65535
+    t.integer  "user_id"
+    t.integer  "forum_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "remember_digest"
     t.string   "activation_digest"
-    t.boolean  "activated",                       default: false
+    t.boolean  "activated",         default: false
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.string   "slug"
-    t.string   "name"
-    t.string   "town"
-    t.string   "postcode"
-    t.string   "phone"
-    t.text     "bio",               limit: 65535
     t.index ["slug"], name: "index_users_on_slug", using: :btree
   end
 
