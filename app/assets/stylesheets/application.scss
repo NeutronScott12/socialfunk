@@ -5,10 +5,20 @@
 @import "microposts";
 @import "static_pages";
 @import "boards";
+@import "forums";
 
 body {
 	background-color:#d9d9d9;
 	font-family:"Montserrat", "Oswald", sans-serif;
+}
+
+#clearfix:before, #clearfix:after {
+	content:" ";
+	display:table;
+}
+
+#clearfix:after {
+	clear:both;
 }
 
 .bottom_links {

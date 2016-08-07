@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
 		return params[:session][:user_id]
 	end
 
+	def admin
+		current_user.admin = true
+	end
+
 end

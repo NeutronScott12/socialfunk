@@ -6,7 +6,9 @@
 
 <div class="row">
 	<div class="container-fluid col-md-8 col-md-offset-2">
+	<% if current_user.try(:admin) %>
 		<p><%= link_to "Create Category", new_forum_path %></p>
+	<% end %>
 	</div>
 </div>
 
@@ -14,7 +16,22 @@
 	<div class="container-fluid col-md-8 col-md-offset-2">
 		<h2>Gaming</h2>
 		<% @forum_gaming.each do |game| %>
-			<%= link_to game.title, forum_path(game) %>
+		<div class="forum", id="clearfix">
+			<ul class="list-group"> 
+				<li class="list-group-item"><%= link_to game.title, forum_path(game) %>
+					<% if current_user.try(:admin) %>
+					<span class="links">
+						<%= link_to edit_forum_path(game) do %>
+							<i class="glyphicon glyphicon-wrench"></i>
+						<% end %>
+						<%= link_to forum_path(game), method: :delete, data: {confirm: "Are You Sure?"} do %>
+							<i class="glyphicon glyphicon-remove"></i>
+						<% end %>
+					</span>
+					<% end %>
+				</li>
+			</ul>
+		</div>
 		<% end %>
 	</div>
 </div>
@@ -23,7 +40,22 @@
 	<div class="container-fluid col-md-8 col-md-offset-2">
 		<h2>Politics</h2>
 		<% @forum_politics.each do |game| %>
-			<%= link_to game.title, forum_path(game) %>
+		<div class="forum", id="clearfix">
+			<ul class="list-group"> 
+				<li class="list-group-item"><%= link_to game.title, forum_path(game) %>
+					<% if current_user.try(:admin) %>
+					<span class="links">
+						<%= link_to edit_forum_path(game) do %>
+							<i class="glyphicon glyphicon-wrench"></i>
+						<% end %>
+						<%= link_to forum_path(game), method: :delete, data: {confirm: "Are You Sure?"} do %>
+							<i class="glyphicon glyphicon-remove"></i>
+						<% end %>
+					</span>
+					<% end %>
+				</li>
+			</ul>
+		</div>
 		<% end %>
 	</div>
 </div>
@@ -32,7 +64,22 @@
 	<div class="container-fluid col-md-8 col-md-offset-2">
 		<h2>News</h2>
 		<% @forum_news.each do |game| %>
-			<%= link_to game.title, forum_path(game) %>
+		<div class="forum", id="clearfix">
+			<ul class="list-group"> 
+				<li class="list-group-item"><%= link_to game.title, forum_path(game) %>
+					<% if current_user.try(:admin) %>
+					<span class="links">
+						<%= link_to edit_forum_path(game) do %>
+							<i class="glyphicon glyphicon-wrench"></i>
+						<% end %>
+						<%= link_to forum_path(game), method: :delete, data: {confirm: "Are You Sure?"} do %>
+							<i class="glyphicon glyphicon-remove"></i>
+						<% end %>
+					</span>
+					<% end %>
+				</li>
+			</ul>
+		</div>
 		<% end %>
 	</div>
 </div>
@@ -41,7 +88,22 @@
 	<div class="container-fluid col-md-8 col-md-offset-2">
 		<h2>Movies</h2>
 		<% @forum_movies.each do |game| %>
-			<%= link_to game.title, forum_path(game) %>
+		<div class="forum", id="clearfix">
+			<ul class="list-group"> 
+				<li class="list-group-item"><%= link_to game.title, forum_path(game) %>
+					<% if current_user.try(:admin) %>
+					<span class="links">
+						<%= link_to edit_forum_path(game) do %>
+							<i class="glyphicon glyphicon-wrench"></i>
+						<% end %>
+						<%= link_to forum_path(game), method: :delete, data: {confirm: "Are You Sure?"} do %>
+							<i class="glyphicon glyphicon-remove"></i>
+						<% end %>
+					</span>
+					<% end %>
+				</li>
+			</ul>
+		</div>
 		<% end %>
 	</div>
 </div>
@@ -50,7 +112,22 @@
 	<div class="container-fluid col-md-8 col-md-offset-2">
 		<h2>General</h2>
 		<% @forum_general.each do |game| %>
-			<%= link_to game.title, forum_path(game) %>
+		<div class="forum", id="clearfix">
+			<ul class="list-group"> 
+				<li class="list-group-item"><%= link_to game.title, forum_path(game) %>
+					<% if current_user.try(:admin) %>
+					<span class="links">
+						<%= link_to edit_forum_path(game) do %>
+							<i class="glyphicon glyphicon-wrench"></i>
+						<% end %>
+						<%= link_to forum_path(game), method: :delete, data: {confirm: "Are You Sure?"} do %>
+							<i class="glyphicon glyphicon-remove"></i>
+						<% end %>
+					</span>
+					<% end %>
+				</li>
+			</ul>
+		</div>
 		<% end %>
 	</div>
 </div>
