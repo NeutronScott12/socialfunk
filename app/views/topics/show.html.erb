@@ -4,22 +4,28 @@
 			<div class="panel-body">
 				<h3><%= @topic.title %></h3>
 				<p><%= @topic.description %></p>
-				<%= link_to "Edit", edit_topic_path(@topic) %>
-				<%= link_to "Delete", topic_path, method: :delete, data: {confirm: "Are you sure?"} %>
+				<% if logged_in? %>
+					<% if @topic.user_id == current_user.id %>
+						<%= link_to "Edit", edit_topic_path(@topic) %>
+						<%= link_to "Delete", topic_path, method: :delete, data: {confirm: "Are you sure?"} %>
+					<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="row">
-	<div class="container col-md-8 col-md-offset-2">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<%= render 'contents/form' %>
+<% unless !current_user %>
+	<div class="row">
+		<div class="container col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<%= render 'contents/form' %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<% end %>
 
 <% unless @topic.contents.empty? %>
 	<div class="row">

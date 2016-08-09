@@ -1,5 +1,7 @@
 <h2><%= @forum.title %></h2>
-<input type="button" value="Create Topic" id="create_topic", class="btn btn-default">
+<% if logged_in? %>
+	<input type="button" value="Create Topic" id="create_topic", class="btn btn-default">
+<% end %>
 <br />
 
 <div class="topic">
