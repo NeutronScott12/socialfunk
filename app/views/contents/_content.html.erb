@@ -1,2 +1,4 @@
 <%= content.comment %>
 <h4><%= content.user.try(:username) %></h4>
+<%= link_to "Edit", edit_content_path %>
+<%= link_to "Delete", content_path, method: :delete, data: {confirm: "Are you sure?"} %>

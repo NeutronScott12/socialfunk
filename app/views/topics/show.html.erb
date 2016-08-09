@@ -4,6 +4,8 @@
 			<div class="panel-body">
 				<h3><%= @topic.title %></h3>
 				<p><%= @topic.description %></p>
+				<%= link_to "Edit", edit_topic_path(@topic) %>
+				<%= link_to "Delete", topic_path, method: :delete, data: {confirm: "Are you sure?"} %>
 			</div>
 		</div>
 	</div>
@@ -19,12 +21,14 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="container col-md-8 col-md-offset-2">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<%= render @topic.contents %>
+<% unless @topic.contents.empty? %>
+	<div class="row">
+		<div class="container col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<%= render @topic.contents %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<% end %>

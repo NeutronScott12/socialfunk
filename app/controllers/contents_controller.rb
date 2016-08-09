@@ -18,9 +18,16 @@ class ContentsController < ApplicationController
 	end
 
 	def update
+		if @content 
+			redirect_to @content 
+		else
+			render :edit 
+		end	
 	end
 
 	def destroy
+		@content.destroy
+		redirect_to forums_path
 	end
 
 	private

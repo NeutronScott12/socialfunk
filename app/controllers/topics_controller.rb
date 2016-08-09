@@ -22,9 +22,16 @@ class TopicsController < ApplicationController
 	end
 
 	def update
+		if @topic.update(topics_param)
+			redirect_to @topic 
+		else
+			render :edit
+		end
 	end
 
 	def destroy
+		@topic.destroy
+		redirect_to @forum 
 	end
 
 	private
