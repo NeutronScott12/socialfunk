@@ -5,7 +5,7 @@
 			<h1>Log In</h1>
 
 			<%= form_for(:session, url: login_path) do |f| %>
-				<%= render 'shared/info', object: f.object %>
+				<%= render 'shared/errors', object: f.object %>
 				<%= f.label :username %>
 				<%= f.text_field :username, autofocus: true, class: "form-control" %>
 
